@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Quiz | PopQuizzer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/create.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Create Quiz</h1>
+    <p class="subtitle">Add questions and build your quiz</p>
+
+    <div class="card">
+      <label>Select Quiz Subject</label>
+      <select id="subjectSelect">
+        <option value="">Select subject</option>
+        <option value="__new__">➕ Create new subject</option>
+      </select>
+
+      <input
+        id="newSubjectInput"
+        placeholder="Enter new subject"
+        style="display:none; margin-top:12px;"
+      />
+
+      <label>Question</label>
+      <input id="question" placeholder="Enter question" />
+
+      <label>Options</label>
+      <div class="options-grid">
+        <input class="option" placeholder="Option 1" />
+        <input class="option" placeholder="Option 2" />
+        <input class="option" placeholder="Option 3" />
+        <input class="option" placeholder="Option 4" />
+      </div>
+
+      <label>Correct Option</label>
+      <select id="correct">
+        <option value="">Select correct option</option>
+        <option value="0">Option 1</option>
+        <option value="1">Option 2</option>
+        <option value="2">Option 3</option>
+        <option value="3">Option 4</option>
+      </select>
+<label>Answer Explanation (optional)</label>
+<textarea
+  id="explanation"
+  placeholder="Explain why this option is correct"
+  rows="3"
+></textarea>
+
+      <div class="actions">
+        <button id="addQuestion">Add Question</button>
+        <button id="saveQuiz">Finish Quiz</button>
+      </div>
+
+      <p class="save-note">
+        <strong>Note:</strong> Questions are saved only when you click
+        <b>Finish Quiz</b>
+      </p>
+    </div>
+
+    <h2 class="questions-title">Available Questions</h2>
+    <div id="questionsList"></div>
+  </div>
+
+  <script src="./create.js"></script>
+</body>
+</html>

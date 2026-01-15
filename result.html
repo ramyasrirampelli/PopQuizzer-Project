@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/result.css" />
+  </head>
+
+  <body>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+
+    <h2>Quiz Finished 🎉</h2>
+
+    <div id="finalScore">
+      <div id="scoreText">Your Score: 0</div>
+      <div id="cheerMessage"></div>
+    </div>
+
+    <div id="stats"></div>
+
+    <h3>Leaderboard 🏆</h3>
+    <ul id="leaderboard"></ul>
+
+    <div class="result-actions">
+      <button id="retryBtn">Retry Quiz</button>
+      <button id="dashboardBtn">Dashboard</button>
+    </div>
+
+    <h3>Answer Review</h3>
+    <div id="review"></div>
+<canvas id="confetti"></canvas>
+
+    <script src="./result.js"></script>
+  </body>
+</html>

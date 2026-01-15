@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PopQuizzer | Auth</title>
+  <link rel="stylesheet" href="./css/login.css" />
+</head>
+<body>
+
+<div class="auth-card">
+
+  <h1 id="title">Welcome back</h1>
+  <p class="brand">PopQuizzer</p>
+
+  <p class="desc" id="desc">
+    Glad to see you again! Log in to join a quiz and start playing.
+  </p>
+
+  <p class="hint">Enter your details to continue</p>
+
+  <input id="email" type="email" placeholder="Email address" />
+
+  <div class="password-box">
+    <input id="password" type="password" placeholder="Password" />
+    <span class="eye" onclick="togglePassword()">
+      <svg xmlns="http://www.w3.org/2000/svg"
+        width="20" height="20" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+    </span>
+  </div>
+   <button id="submit" onclick="handleAuth()">Log in</button>
+
+  <div class="switch">
+    <span id="switchText">New user?</span>
+    <span id="switchAction" onclick="toggleMode()">Sign up</span>
+  </div>
+<div class="divider">
+  <span>or</span>
+</div>
+
+<button class="google-btn" onclick="googleLogin()" type="button">
+  <img
+    src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+    alt="Google"
+  />
+  <span>Continue with Google</span>
+</button>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="./firebase.js"></script>
+<script src="./login.js"></script>
+</body>
+</html>

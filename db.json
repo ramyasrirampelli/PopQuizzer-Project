@@ -1,0 +1,222 @@
+{
+  "authors": [
+    {
+      "id": "a1",
+      "email": "abc123@gmail.com",
+      "role": "author"
+    }
+  ],
+  "users": [
+    {
+      "id": "98c5",
+      "email": "rampelli.ramyarachana@gmail.com",
+      "name": "Rampelli Ramyasri",
+      "provider": "google",
+      "uid": "AQ1WdKVnI2eneoJaiZUrhEkMtDV2"
+    },
+    {
+      "id": "0d5c",
+      "email": "ramya@gmail.com",
+      "password": "Ramya"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "9f31",
+      "subject": "JAVASCRIPT",
+      "questions": [
+        {
+          "question": "Which of the following is NOT a JavaScript data type?",
+          "options": ["Number", "String", "Boolean", "Character"],
+          "answer": 3,
+          "explanation": "JavaScript does not have a separate Character type. Characters are represented as strings."
+        },
+        {
+          "question": "What is the difference between let and var?",
+          "options": [
+            "let has function scope, var has block scope",
+            "var has block scope, let has function scope",
+            "let has block scope, var has function scope",
+            "There is no difference"
+          ],
+          "answer": 2,
+          "explanation": "let is block-scoped while var is function-scoped, which helps prevent bugs."
+        },
+        {
+          "question": "What will typeof null return?",
+          "options": ["null", "object", "undefined", "number"],
+          "answer": 1,
+          "explanation": "Due to a historical bug in JavaScript, typeof null returns 'object'."
+        },
+        {
+          "question": "Which function is used to convert a JSON string into a JavaScript object?",
+          "options": [
+            "JSON.stringify()",
+            "JSON.parse()",
+            "parseJSON()",
+            "toObject()"
+          ],
+          "answer": 1,
+          "explanation": "JSON.parse() converts a JSON string into a JavaScript object."
+        },
+        {
+          "question": "Which method is used to add an element to the end of an array?",
+          "options": ["push()", "pop()", "shift()", "unshift()"],
+          "answer": 0,
+          "explanation": "push() adds one or more elements to the end of an array."
+        },
+        {
+          "question": "What is a closure in JavaScript?",
+          "options": [
+            "A function inside a loop",
+            "A function having access to its outer scope",
+            "A block of code that executes immediately",
+            "A method used to close a program"
+          ],
+          "answer": 1,
+          "explanation": "A closure allows a function to access variables from its outer scope even after the outer function has executed."
+        },
+        {
+          "question": "Which keyword is used to create a promise?",
+          "options": ["promise", "new Promise", "async", "await"],
+          "answer": 1,
+          "explanation": "Promises are created using the Promise constructor with new Promise()."
+        },
+        {
+          "question": "What does the async keyword do?",
+          "options": [
+            "Makes a function return a Promise",
+            "Pauses program execution",
+            "Runs code in parallel threads",
+            "Stops function execution"
+          ],
+          "answer": 0,
+          "explanation": "An async function always returns a Promise."
+        },
+        {
+          "question": "Which DOM method is used to select an element by ID?",
+          "options": [
+            "querySelectorAll()",
+            "getElementsByClassName()",
+            "getElementById()",
+            "selectById()"
+          ],
+          "answer": 2,
+          "explanation": "getElementById() selects an element using its unique ID."
+        },
+        {
+          "question": "What will be the output of: console.log(2 + '2')?",
+          "options": ["4", "22", "NaN", "Error"],
+          "answer": 1,
+          "explanation": "JavaScript performs type coercion, converting number 2 to string and concatenating."
+        }
+      ]
+    },
+    {
+      "id": "6ac9",
+      "subject": "JAVA",
+      "questions": [
+        {
+          "question": "What is Java?",
+          "options": [
+            "A database",
+            "A programming language",
+            "An operating system",
+            "A web browser"
+          ],
+          "answer": 1,
+          "explanation": "Java is a high-level, object-oriented programming language used to build applications for different platforms."
+        },
+        {
+          "question": "Who developed Java?",
+          "options": ["Microsoft", "Apple", "Sun Microsystems", "Google"],
+          "answer": 2,
+          "explanation": "Java was developed by Sun Microsystems in 1995, which was later acquired by Oracle."
+        },
+        {
+          "question": "Which keyword is used to create a class in Java?",
+          "options": ["define", "class", "new", "Object"],
+          "answer": 1,
+          "explanation": "The class keyword is used to declare a class in Java."
+        },
+        {
+          "question": "Which method is executed first in Java?",
+          "options": ["start()", "main()", "run()", "init()"],
+          "answer": 1,
+          "explanation": "The main() method is the starting point of every Java application."
+        }
+      ]
+    },
+    {
+      "id": "css01",
+      "subject": "CSS",
+      "questions": [
+        {
+          "question": "What does CSS stand for?",
+          "options": [
+            "Computer Style Sheets",
+            "Creative Style System",
+            "Cascading Style Sheets",
+            "Colorful Style Sheets"
+          ],
+          "answer": 2,
+          "explanation": "CSS stands for Cascading Style Sheets and is used to style HTML elements."
+        },
+        {
+          "question": "Which property controls the text size?",
+          "options": ["font-style", "text-size", "font-size", "text-style"],
+          "answer": 2,
+          "explanation": "font-size is used to control the size of text."
+        },
+        {
+          "question": "What is the default position value in CSS?",
+          "options": ["absolute", "relative", "static", "fixed"],
+          "answer": 2,
+          "explanation": "static is the default position value for HTML elements."
+        },
+        {
+          "question": "Which CSS property is used to create space inside an element?",
+          "options": ["margin", "border", "padding", "spacing"],
+          "answer": 2,
+          "explanation": "padding creates space between the content and the border of an element."
+        },
+        {
+          "question": "Which display property value enables Flexbox?",
+          "options": ["block", "inline", "grid", "flex"],
+          "answer": 3,
+          "explanation": "Setting display: flex enables the Flexbox layout model."
+        },
+        {
+          "question": "Which unit is relative to the font size of the root element?",
+          "options": ["em", "px", "rem", "%"],
+          "answer": 2,
+          "explanation": "rem is relative to the root element's font size."
+        },
+        {
+          "question": "Which property is used to make an element invisible but still take space?",
+          "options": [
+            "display: none",
+            "visibility: hidden",
+            "opacity: 0",
+            "hidden: true"
+          ],
+          "answer": 1,
+          "explanation": "visibility: hidden hides the element but keeps its layout space."
+        },
+        {
+          "question": "Which CSS feature is used to make layouts responsive?",
+          "options": [
+            "Media Queries",
+            "Selectors",
+            "Pseudo-classes",
+            "Keyframes"
+          ],
+          "answer": 0,
+          "explanation": "Media queries allow styles to adapt to different screen sizes."
+        }
+      ]
+    }
+  ],
+  "players": [],
+  "results": []
+}
