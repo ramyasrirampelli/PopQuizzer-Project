@@ -303,3 +303,22 @@ function logout() {
     window.location.href = "login.html";
   }
 }
+
+const logoutBtn = document.querySelector(".logout-btn");
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+
+  if (currentScroll > 30) {
+    // user scrolled down
+    logoutBtn.classList.add("hide");
+  } else {
+    // user at top
+    logoutBtn.classList.remove("hide");
+  }
+
+  lastScrollY = currentScroll;
+});
+

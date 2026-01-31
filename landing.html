@@ -1,161 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>PopQuizzer</title>
-  <link rel="stylesheet" href="./css/landing.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PopQuizzer</title>
+    <link rel="stylesheet" href="./css/landing.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-inner">
+        <div class="logo">PopQuizzer 🚀</div>
+        <div class="nav-links">
+          <a href="#how">How it works</a>
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+        </div>
+      </div>
+    </nav>
 
-<nav class="navbar">
-  <div class="nav-inner">
-    <div class="logo">PopQuizzer 🚀</div>
-    <div class="nav-links">
-      <a href="#how">How it works</a>
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-    </div>
-  </div>
-</nav>
+    <section class="hero container reveal">
+      <div class="hero-text">
+        <h1>Pop Quizzer</h1>
+        <p class="tagline">Create • Play • Compete • Learn</p>
 
-<section class="hero container reveal">
-  <div class="hero-text">
-    <h1>Pop Quizzer</h1>
-    <p class="tagline">Create • Play • Compete • Learn</p>
+        <div class="actions">
+          <button class="btn play" onclick="goPlay()">Play Quiz</button>
+          <button class="btn create" onclick="openAuthorBox()">
+            Create Quiz
+          </button>
+        </div>
 
-    <div class="actions">
-      <button class="btn play" onclick="goPlay()">Play Quiz</button>
-      <button class="btn create" onclick="openAuthorBox()">Create Quiz</button>
-    </div>
-
-    <div id="authorBox" class="author-box hidden">
-      <input type="email" id="authorEmail" placeholder="Enter author email" />
-      <button onclick="continueAsAuthor()">Continue</button>
-    </div>
-  </div>
-
-  <div class="hero-img">
-    <img src="./images/hero.svg" alt="Hero Illustration">
-  </div>
-</section>
-
-<section id="how" class="how reveal">
-  <div class="container">
-    <h2>How It Works</h2>
-
-    <div class="how-grid">
-      <div class="how-card">
-        <img src="./images/author.svg" alt="Author">
-        <h3>👩‍🏫 Quiz Author</h3>
-        <ul>
-          <li>
-            Create quizzes easily
-        </li>
-          <li>Share join code</li>
-          <li>Track scores</li>
-          <li>View leaderboard</li>
-        </ul>
+        <div id="authorBox" class="author-box hidden">
+          <input
+            type="email"
+            id="authorEmail"
+            placeholder="Enter author email"
+          />
+          <button onclick="continueAsAuthor()">Continue</button>
+        </div>
       </div>
 
-      <div class="how-card">
-        <img src="./images/player.svg" alt="Player">
-        <h3>🧑‍🎓 Quiz Player</h3>
-        <ul>
-          <li>Join with code</li>
-          <li>Answer timed questions</li>
-          <li>Compete live</li>
-          <li>Review answers</li>
-        </ul>
+      <div class="hero-img">
+        <img src="./images/hero.svg" alt="Hero Illustration" />
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="about" class="about reveal">
-  <div class="container about-grid">
-    <div class="about-img">
-      <img src="./images/learning.svg" alt="Learning">
-    </div>
+    <section id="how" class="how reveal">
+      <div class="container">
+        <h2>How It Works</h2>
 
-    <div class="about-text">
-      <h2>About PopQuizzer</h2>
-      <p>
-        PopQuizzer is a fast, interactive quiz platform designed for learning,
-        competitions, and fun. It transforms ordinary questions into exciting
-        real-time experiences that engage both creators and players.
-      </p>
-    </div>
-  </div>
-</section>
+        <div class="how-grid">
+          <div class="how-card">
+            <img src="./images/author.svg" alt="Author" />
+            <h3>👩‍🏫 Quiz Author</h3>
+            <ul>
+              <li>Create quizzes easily</li>
+              <li>Share join code</li>
+              <li>Track scores</li>
+              <li>View leaderboard</li>
+            </ul>
+          </div>
 
-<section id="features" class="features reveal">
-  <div class="container">
-    <h2>Why PopQuizzer?</h2>
-
-    <div class="feature-grid">
-      <div class="feature">
-        <h4>⚡ Real-time gameplay</h4>
-        <p>
-          Questions, answers, and scores update instantly for all players,
-          making every quiz fast, interactive, and exciting.
-        </p>
+          <div class="how-card">
+            <img src="./images/player.svg" alt="Player" />
+            <h3>🧑‍🎓 Quiz Player</h3>
+            <ul>
+              <li>Join with code</li>
+              <li>Answer timed questions</li>
+              <li>Compete live</li>
+              <li>Review answers</li>
+            </ul>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="feature">
-        <h4>🏆 Live leaderboard</h4>
-        <p>
-          Rankings change live as players answer questions, creating healthy
-          competition and boosting engagement.
-        </p>
+    <section id="about" class="about reveal">
+      <div class="container about-grid">
+        <div class="about-img">
+          <img src="./images/learning.svg" alt="Learning" />
+        </div>
+
+        <div class="about-text">
+          <h2>About PopQuizzer</h2>
+          <p>
+            PopQuizzer is a fast, interactive quiz platform designed for
+            learning, competitions, and fun. It transforms ordinary questions
+            into exciting real-time experiences that engage both creators and
+            players.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <div class="feature">
-        <h4>⏱ Timed questions</h4>
-        <p>
-          Each question has a countdown timer that keeps the game dynamic and
-          encourages quick thinking.
-        </p>
+    <section id="features" class="features reveal">
+      <div class="container">
+        <h2>Why PopQuizzer?</h2>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <h4>⚡ Real-time gameplay</h4>
+            <p>
+              Questions, answers, and scores update instantly for all players,
+              making every quiz fast, interactive, and exciting.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h4>🏆 Live leaderboard</h4>
+            <p>
+              Rankings change live as players answer questions, creating healthy
+              competition and boosting engagement.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h4>⏱ Timed questions</h4>
+            <p>
+              Each question has a countdown timer that keeps the game dynamic
+              and encourages quick thinking.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h4>📊 Smart results</h4>
+            <p>
+              Get clear insights with final scores, correct answers, and
+              performance breakdowns after every quiz.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h4>🎨 Clean UI</h4>
+            <p>
+              A distraction-free, modern interface that is easy to use for both
+              quiz creators and players.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h4>📱 Mobile friendly</h4>
+            <p>
+              Fully responsive design that works smoothly on mobiles, tablets,
+              and desktops—play anywhere.
+            </p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="feature">
-        <h4>📊 Smart results</h4>
-        <p>
-          Get clear insights with final scores, correct answers, and performance
-          breakdowns after every quiz.
-        </p>
+    <section class="cta reveal">
+      <div class="cta-box">
+        <h2>Ready to play Your First Quiz?</h2>
+        <button onclick="goPlay()">Play Quiz Now</button>
       </div>
+    </section>
 
-      <div class="feature">
-        <h4>🎨 Clean UI</h4>
-        <p>
-          A distraction-free, modern interface that is easy to use for both quiz
-          creators and players.
-        </p>
-      </div>
+    <footer>© 2025 PopQuizzer • Learn with Fun 🎉</footer>
 
-      <div class="feature">
-        <h4>📱 Mobile friendly</h4>
-        <p>
-          Fully responsive design that works smoothly on mobiles, tablets, and
-          desktops—play anywhere.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="cta reveal">
-  <div class="cta-box">
-    <h2>Ready to play Your First Quiz?</h2>
-    <button onclick="goPlay()">Play Quiz Now</button>
-  </div>
-</section>
-
-<footer>
-  © 2025 PopQuizzer • Learn with Fun 🎉
-</footer>
-
-<script src="landing.js"></script>
-</body>
+    <script src="landing.js"></script>
+  </body>
 </html>

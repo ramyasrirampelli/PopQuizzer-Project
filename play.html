@@ -1,36 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Play Quiz</title>
-  <link rel="stylesheet" href="./css/play.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play Quiz</title>
+    <link rel="stylesheet" href="./css/play.css" />
+  </head>
+  <body>
+    <div class="page">
+      <h1>Available Quizzes</h1>
+      <div class="quiz-list" id="quizList"></div>
 
-  <div class="page">
+      <div class="join-section hidden" id="joinSection">
+        <div class="join-card">
+          <h2>Join Quiz</h2>
 
-    <h1>Available Quizzes</h1>
-    <div class="quiz-list" id="quizList"></div>
+          <div class="code-display" id="codeDisplay"></div>
 
-    <div class="join-section hidden" id="joinSection">
-      <div class="join-card">
-        <h2>Join Quiz</h2>
+          <label>Join Code</label>
+          <input id="joinCode" placeholder="Enter join code" />
 
-        <div class="code-display" id="codeDisplay"></div>
+          <label>Your Name</label>
+          <input id="name" placeholder="Enter your name" />
 
-        <label>Join Code</label>
-        <input id="joinCode" placeholder="Enter join code" />
-
-        <label>Your Name</label>
-        <input id="name" placeholder="Enter your name" />
-
-        <button id="joinBtn">Join Quiz</button>
+          <button id="joinBtn">Join Quiz</button>
+        </div>
       </div>
     </div>
 
-  </div>
-
-  <script src="play.js"></script>
-</body>
-
+    <script src="play.js"></script>
+  </body>
 </html>
