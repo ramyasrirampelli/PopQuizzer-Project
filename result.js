@@ -1,8 +1,7 @@
-const user = sessionStorage.getItem("user");
+const user = JSON.parse(sessionStorage.getItem("user"));
 
-if (!user) {
-  window.location.href = "login.html";
-}
+const email = user.email;
+const name = user.name;
 
 showResult();
 
@@ -15,22 +14,10 @@ async function showResult() {
     document.body.innerHTML = "<h2>Invalid quiz access</h2>";
     return;
   }
-
-  let player = { name: sessionStorage.getItem("playerName") || "You" };
-
-  if (playerId) {
-    try {
-      player = await fetch(`https://popquizzer-crud-backend.onrender.com/players/${playerId}`).then(
-        (r) => r.json()
-      );
-    } catch (e) {
-      console.warn("Player not found, using session data");
-    }
-  }
-
-  const quiz = await fetch(`https://popquizzer-crud-backend.onrender.com/quizzes/${quizId}`).then(
-    (r) => r.json()
-  );
+  const quiz = await fetch(
+    `https://popquizzer-crud-backend.onrender.com/quizzes/${quizId}`,
+  ).then((r) => r.json());
+  const subject = quiz.subject;
 
   let correct = 0;
   quiz.questions.forEach((q, i) => {
@@ -59,7 +46,7 @@ async function showResult() {
   renderReview(quiz, userAnswers);
 
   const results = await fetch(
-    `https://popquizzer-crud-backend.onrender.com/results?quizId=${quizId}`
+    `https://popquizzer-crud-backend.onrender.com/results?subject=${subject}`,
   ).then((r) => r.json());
 
   results.sort((a, b) => b.score - a.score);
@@ -77,7 +64,7 @@ async function showResult() {
       const card = document.createElement("div");
       card.className = "top3-item";
 
-      if (playerId && entry.playerId === playerId) {
+      if (playerId && entry.email === email) {
         card.classList.add("current-player");
       }
 
@@ -86,7 +73,7 @@ async function showResult() {
         <div class="name">${entry.name}</div>
         <div class="score">${entry.score} pts</div>
         ${
-          playerId && entry.playerId === playerId
+          playerId && entry.email === email
             ? `<div class="you-badge">YOU</div>`
             : ""
         }
@@ -102,7 +89,7 @@ async function showResult() {
     const li = document.createElement("li");
     li.className = "leaderboard-row";
 
-    if (playerId && entry.playerId === playerId) {
+    if (playerId && entry.email === email) {
       li.classList.add("current-player");
     }
 
@@ -110,7 +97,7 @@ async function showResult() {
       <span>#${index + 4} ${entry.name}</span>
       <span>${entry.score}</span>
       ${
-        playerId && entry.playerId === playerId
+        playerId && entry.email === email
           ? `<span class="you-inline">YOU</span>`
           : ""
       }
@@ -119,29 +106,41 @@ async function showResult() {
     leaderboardEl.appendChild(li);
   });
 
-  saveResult({ quizId, playerId, name: player.name, score });
+  saveResult({
+    email,
+    name,
+    subject,
+    score,
+  });
 }
 
 function saveResult(data) {
   fetch(
-    `https://popquizzer-crud-backend.onrender.com/results?quizId=${data.quizId}&playerId=${data.playerId}`
+    `https://popquizzer-crud-backend.onrender.com/results?email=${data.email}&subject=${data.subject}`,
   )
     .then((r) => r.json())
     .then((existing) => {
       if (existing.length === 0) {
+        // First attempt
         return fetch("https://popquizzer-crud-backend.onrender.com/results", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
         });
       } else {
-        if (data.score > existing[0].score) {
-          return fetch(`https://popquizzer-crud-backend.onrender.com/results/${existing[0].id}`, {
+        const existingResult = existing[0];
+
+        return fetch(
+          `https://popquizzer-crud-backend.onrender.com/results/${existingResult.id}`,
+          {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-          });
-        }
+            body: JSON.stringify({
+              name: data.name,
+              score: Math.max(existingResult.score, data.score),
+            }),
+          },
+        );
       }
     });
 }
@@ -312,13 +311,10 @@ window.addEventListener("scroll", () => {
   const currentScroll = window.scrollY;
 
   if (currentScroll > 30) {
-    // user scrolled down
     logoutBtn.classList.add("hide");
   } else {
-    // user at top
     logoutBtn.classList.remove("hide");
   }
 
   lastScrollY = currentScroll;
 });
-

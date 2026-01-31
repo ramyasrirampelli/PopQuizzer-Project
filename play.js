@@ -1,3 +1,10 @@
+const loggedUser = JSON.parse(sessionStorage.getItem("user"));
+
+if (!loggedUser) {
+  alert("Please login first");
+  window.location.href = "login.html";
+}
+
 let activeQuizId = null;
 let activeJoinCode = null;
 
@@ -45,26 +52,53 @@ document.getElementById("joinBtn").onclick = async () => {
   const name = document.getElementById("name").value.trim();
 
   if (!name) {
-    alert("Enter your name");
+    alert("Please enter your name");
     return;
   }
 
-  const res = await fetch("https://popquizzer-crud-backend.onrender.com/players", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      quizId: activeQuizId,
-      joinCode: activeJoinCode,
-      name
-    })
-  });
+  const email = loggedUser.email;
 
-  const player = await res.json(); 
+  const existingRes = await fetch(
+    `https://popquizzer-crud-backend.onrender.com/players?quizId=${activeQuizId}&email=${email}`
+  );
+  const existingPlayers = await existingRes.json();
+
+  let player;
+
+  if (existingPlayers.length > 0) {
+    player = existingPlayers[0];
+
+    await fetch(
+      `https://popquizzer-crud-backend.onrender.com/players/${player.id}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name })
+      }
+    );
+  } else {
+    const res = await fetch(
+      "https://popquizzer-crud-backend.onrender.com/players",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          quizId: activeQuizId,
+          joinCode: activeJoinCode,
+          name,
+          email
+        })
+      }
+    );
+
+    player = await res.json();
+  }
 
   sessionStorage.setItem("quizId", activeQuizId);
-  sessionStorage.setItem("playerId", player.id); 
+  sessionStorage.setItem("playerId", player.id);
   sessionStorage.setItem("playerName", name);
-
+loggedUser.name = name;
+sessionStorage.setItem("user", JSON.stringify(loggedUser));
   window.location.href = "quiz.html";
 };
 
